@@ -1,14 +1,14 @@
-# command-line-parser-cs
+# EasyCommandLineParser
 
 ## Overview
 
-**CommandLineParser** is a simple argument parsing code.  
+**EasyCommandLineParser** is a easy-to-use command line parser.  
 It works with a single file, there is no license in the code, and it is free for anyone to use.
 
 ## Example
 
 ```cs
-using CommandLineParser;
+using EasyCommandLineParser;
 
 class Program
 {
@@ -46,4 +46,9 @@ class Program
 ## Where is the source code?
 
 Download directly here\!  
-https://raw.githubusercontent.com/wertrain/command-line-parser-cs/master/CommandLineParser/CommandLineParser.cs
+https://raw.githubusercontent.com/cointoss1973/EasyCommandLineParser/master/EasyCommandLineParser/EasyCommandLineParser.cs
+
+
+## Acknowledgements
+
+Original : https://github.com/wertrain/command-line-parser-cs

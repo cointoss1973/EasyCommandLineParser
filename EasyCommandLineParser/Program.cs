@@ -1,4 +1,4 @@
-﻿namespace CommandLineParser
+﻿namespace EasyCommandLineParser
 {
     class Program
     {

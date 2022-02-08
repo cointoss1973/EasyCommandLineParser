@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using CommandLineParser;
+using EasyCommandLineParser;
 
-namespace CommandLineParserTest
+namespace EasyCommandLineParserTest
 {
 
     [TestClass]
