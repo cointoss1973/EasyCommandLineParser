@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using System.Collections.Generic;
 using EasyCommandLineParser;
 
 namespace EasyCommandLineParserTest
 {
-    [TestClass]
     public class TypesTest
     {
         class Options
@@ -39,332 +38,332 @@ namespace EasyCommandLineParserTest
             public bool BooleanValue { get; set; }
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeString()
         {
             var args = new List<string>();
             args.Add("--string");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual("TestText", result.Value.Text);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal("TestText", result.Value.Text);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeLong()
         {
             var args = new List<string>();
             args.Add("--long");
             args.Add("1234567890123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(1234567890123456789, result.Value.LongValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(1234567890123456789, result.Value.LongValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeInt()
         {
             var args = new List<string>();
             args.Add("--int");
             args.Add("123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456789, result.Value.IntValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456789, result.Value.IntValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeShort()
         {
             var args = new List<string>();
             args.Add("--short");
             args.Add("12345");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(12345, result.Value.ShortValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(12345, result.Value.ShortValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeByte()
         {
             var args = new List<string>();
             args.Add("--byte");
             args.Add("123");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123, result.Value.ByteValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123, result.Value.ByteValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeChar()
         {
             var args = new List<string>();
             args.Add("--char");
             args.Add("a");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual('a', result.Value.CharValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal('a', result.Value.CharValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeSByte()
         {
             var args = new List<string>();
             args.Add("--sbyte");
             args.Add("12");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(12, result.Value.SByteValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(12, result.Value.SByteValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeULong()
         {
             var args = new List<string>();
             args.Add("--ulong");
             args.Add("1234567890123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(1234567890123456789u, result.Value.ULongValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(1234567890123456789u, result.Value.ULongValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeUInt()
         {
             var args = new List<string>();
             args.Add("--uint");
             args.Add("123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456789u, result.Value.UIntValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456789u, result.Value.UIntValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeUShort()
         {
             var args = new List<string>();
             args.Add("--ushort");
             args.Add("12345");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(12345u, result.Value.UShortValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(12345u, result.Value.UShortValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeFloat()
         {
             var args = new List<string>();
             args.Add("--float");
             args.Add("1.23456");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(1.23456f, result.Value.FloatValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(1.23456f, result.Value.FloatValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeDouble()
         {
             var args = new List<string>();
             args.Add("--double");
             args.Add("123456.789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456.789, result.Value.DoubleValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456.789, result.Value.DoubleValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeDecimal()
         {
             var args = new List<string>();
             args.Add("--decimal");
             args.Add("123456");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456, result.Value.DecimalValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456, result.Value.DecimalValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeBoolean()
         {
             var args = new List<string>();
             args.Add("--bool");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsTrue(result.Value.BooleanValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.True(result.Value.BooleanValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestLongName_TypeBooleanFalse()
         {
             var args = new List<string>();
             args.Add("--bool");
             args.Add("false");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.BooleanValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.BooleanValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeString()
         {
             var args = new List<string>();
             args.Add("-t");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual("TestText", result.Value.Text);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal("TestText", result.Value.Text);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeLong()
         {
             var args = new List<string>();
             args.Add("-l");
             args.Add("1234567890123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(1234567890123456789, result.Value.LongValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(1234567890123456789, result.Value.LongValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeInt()
         {
             var args = new List<string>();
             args.Add("-i");
             args.Add("123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456789, result.Value.IntValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456789, result.Value.IntValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeShort()
         {
             var args = new List<string>();
             args.Add("-s");
             args.Add("12345");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(12345, result.Value.ShortValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(12345, result.Value.ShortValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeByte()
         {
             var args = new List<string>();
             args.Add("-b");
             args.Add("123");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123, result.Value.ByteValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123, result.Value.ByteValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeChar()
         {
             var args = new List<string>();
             args.Add("-c");
             args.Add("a");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual('a', result.Value.CharValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal('a', result.Value.CharValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeSByte()
         {
             var args = new List<string>();
             args.Add("-o");
             args.Add("12");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(12, result.Value.SByteValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(12, result.Value.SByteValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeULong()
         {
             var args = new List<string>();
             args.Add("-p");
             args.Add("1234567890123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(1234567890123456789u, result.Value.ULongValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(1234567890123456789u, result.Value.ULongValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeUInt()
         {
             var args = new List<string>();
             args.Add("-q");
             args.Add("123456789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456789u, result.Value.UIntValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456789u, result.Value.UIntValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeUShort()
         {
             var args = new List<string>();
             args.Add("-r");
             args.Add("12345");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(12345u, result.Value.UShortValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(12345u, result.Value.UShortValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeFloat()
         {
             var args = new List<string>();
             args.Add("-f");
             args.Add("1.23456");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(1.23456f, result.Value.FloatValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(1.23456f, result.Value.FloatValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeDouble()
         {
             var args = new List<string>();
             args.Add("-d");
             args.Add("123456.789");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456.789, result.Value.DoubleValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456.789, result.Value.DoubleValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeDecimal()
         {
             var args = new List<string>();
             args.Add("-m");
             args.Add("123456");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual(123456, result.Value.DecimalValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal(123456, result.Value.DecimalValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeBoolean()
         {
             var args = new List<string>();
             args.Add("-w");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsTrue(result.Value.BooleanValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.True(result.Value.BooleanValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestShortName_TypeBooleanFalse()
         {
             var args = new List<string>();
             args.Add("-w");
             args.Add("false");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.BooleanValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.BooleanValue);
         }
     }
 }

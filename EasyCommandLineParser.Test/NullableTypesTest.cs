@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using System.Collections.Generic;
 using EasyCommandLineParser;
 
 namespace EasyCommandLineParserTest
 {
-    [TestClass]
     public class NullableTypesTest
     {
         class Options
@@ -39,158 +38,158 @@ namespace EasyCommandLineParserTest
             public bool? BooleanValue { get; set; }
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeString()
         {
             var args = new List<string>();
             args.Add("--string");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreEqual("TestText", result.Value.Text);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.Equal("TestText", result.Value.Text);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeLong()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.LongValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.LongValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeInt()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.IntValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.IntValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeShort()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.ShortValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.ShortValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeByte()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.ByteValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.ByteValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeChar()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.CharValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.CharValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeSByte()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.SByteValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.SByteValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeULong()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.ULongValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.ULongValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeUInt()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.UIntValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.UIntValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeUShort()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.UShortValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.UShortValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeFloat()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.FloatValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.FloatValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeDouble()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.DoubleValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.DoubleValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeDecimal()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.DecimalValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.DecimalValue.HasValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestNullable_TypeBoolean()
         {
             var args = new List<string>();
             args.Add("--test");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.IsFalse(result.Value.BooleanValue.HasValue);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.False(result.Value.BooleanValue.HasValue);
         }
     }
 }

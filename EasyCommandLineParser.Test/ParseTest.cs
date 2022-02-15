@@ -1,11 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Xunit;
 using System.Collections.Generic;
 using EasyCommandLineParser;
 
 namespace EasyCommandLineParserTest
 {
 
-    [TestClass]
     public class ParseTest
     {
         class Options
@@ -18,37 +17,37 @@ namespace EasyCommandLineParserTest
             public int IntValue { get; set; }
         }
 
-        [TestMethod]
+        [Fact]
         public void TestParse_ErrorParamOverflow()
         {
             var args = new List<string>();
             args.Add("--int");
             args.Add(long.MaxValue.ToString());
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.NotParsed);
-            Assert.AreEqual(0, result.Value.IntValue);
+            Assert.True(result.Tag == ParserResultType.NotParsed);
+            Assert.Equal(0, result.Value.IntValue);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestParse_ErrorNotExistsOption()
         {
             var args = new List<string>();
             args.Add("--t");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.Parsed);
-            Assert.AreNotEqual("TestText", result.Value.Text);
+            Assert.True(result.Tag == ParserResultType.Parsed);
+            Assert.NotEqual("TestText", result.Value.Text);
         }
 
-        [TestMethod]
+        [Fact]
         public void TestParse_ErrorWrongParam()
         {
             var args = new List<string>();
             args.Add("--int");
             args.Add("TestText");
             var result = Parser.Parse<Options>(args);
-            Assert.IsTrue(result.Tag == ParserResultType.NotParsed);
-            Assert.AreNotEqual("int", result.Value.IntValue);
+            Assert.True(result.Tag == ParserResultType.NotParsed);
+            //Assert.NotEqual("int", result.Value.IntValue);
         }
     }
 }
